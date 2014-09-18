@@ -38,3 +38,9 @@ set background=dark
 colorscheme wombat
 
 inoremap jj <Esc>
+
+nnoremap ; :
+nnoremap : ;
+
+" Strip trailing whitespace on Python files
+autocmd BufWritePre *.py :%s/\s\+$//e
