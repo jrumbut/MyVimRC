@@ -44,3 +44,5 @@ nnoremap : ;
 
 " Strip trailing whitespace on Python files
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+nnoremap \e :NERDTreeToggle<CR>
