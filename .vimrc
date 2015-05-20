@@ -48,3 +48,5 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 nnoremap \e :NERDTreeToggle<CR>
 
 imap <C-l> <Esc>$a
+nnoremap \l :setlocal number!<CR>
+nnoremap \o :set paste!<CR>
