@@ -47,9 +47,12 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 nnoremap \e :NERDTreeToggle<CR>
 
-imap <C-l> <Esc>$a
+inoremap <C-l> <Esc>$a
 nnoremap \l :setlocal number!<CR>
 nnoremap \o :set paste!<CR>
 
 " fix possible charset issue without changing charset
 " let g:NERDTreeDirArrows=0
+
+inoremap scc <Esc>m`A;<Esc>``i
+nnoremap sc <Esc>m`A;<Esc>``
