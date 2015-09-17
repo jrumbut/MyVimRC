@@ -18,9 +18,9 @@ set autoindent
 set history=1000
 set cursorline
 set expandtab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 
 " Nerdtree
 autocmd vimenter * NERDTree
