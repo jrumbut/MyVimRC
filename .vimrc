@@ -42,8 +42,12 @@ inoremap jj <Esc>
 nnoremap ; :
 nnoremap : ;
 
-" Strip trailing whitespace on Python files
+" Strip trailing whitespace on Python, PHP, JS, SCSS, and CSS files
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.php :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.sass :%s/\s\+$//e
+autocmd BufWritePre *.css :%s/\s\+$//e
 
 nnoremap \e :NERDTreeToggle<CR>
 
@@ -56,3 +60,14 @@ nnoremap \o :set paste!<CR>
 
 inoremap scc <Esc>m`A;<Esc>``i
 nnoremap sc <Esc>m`A;<Esc>``
+
+" More spaces for php
+autocmd Filetype php setlocal ts=4 sw=4 sts=0 expandtab
+
+" Strip Trailing Whitespace Function
+" Usage :call TrimWhiteSpace()
+fun! TrimWhitespace()
+    let l:save_cursor = getpos('.')
+    %s/\s\+$//e
+    call setpos('.', l:save_cursor)
+endfun
