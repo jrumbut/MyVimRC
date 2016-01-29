@@ -43,7 +43,6 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 set background=dark
 colorscheme wombat
 
-
 nnoremap ; :
 nnoremap : ;
 
@@ -53,3 +52,35 @@ nnoremap \e :NERDTreeToggle<CR>
 
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
+
+" Strip trailing whitespace on Python, PHP, JS, SCSS, and CSS files
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.php :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.sass :%s/\s\+$//e
+autocmd BufWritePre *.css :%s/\s\+$//e
+
+nnoremap \e :NERDTreeToggle<CR>
+
+inoremap <C-l> <Esc>$a
+nnoremap \l :setlocal number!<CR>
+nnoremap \o :set paste!<CR>
+
+" fix possible charset issue without changing charset
+" let g:NERDTreeDirArrows=0
+
+inoremap scc <Esc>m`A;<Esc>``i
+nnoremap sc <Esc>m`A;<Esc>``
+
+" More spaces for php
+autocmd Filetype php setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype js setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype scss setlocal ts=2 sw=2 sts=0 expandtab
+
+" Strip Trailing Whitespace Function
+" Usage :call TrimWhiteSpace()
+fun! TrimWhitespace()
+    let l:save_cursor = getpos('.')
+    %s/\s\+$//e
+    call setpos('.', l:save_cursor)
+endfun
